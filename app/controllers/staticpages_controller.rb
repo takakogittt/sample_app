@@ -6,5 +6,6 @@ class StaticpagesController < ApplicationController
   end
   
   def about
+    <%= render 'layouts/footer' %>
   end
 end
