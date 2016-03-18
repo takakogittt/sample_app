@@ -1,8 +1,15 @@
 SampleApp::Application.routes.draw do
+  
+  devise_for :users, :controllers => {
+    :registrations => "registrations"
+  }
+  resources :users, only: [:show]
+  
   root  'staticpages#home'
   
-  resources :users, only: [:show]
-  devise_for :users
+  #これ消していいの？ devise_for :users
+  
+  #何かあったら順番を変える resources :users, only: [:show]
   match '/help',    to: 'staticpages#help',    via: 'get'
   match '/about',   to: 'staticpages#about',   via: 'get'
   match '/contact', to: 'staticpages#contact', via: 'get'
